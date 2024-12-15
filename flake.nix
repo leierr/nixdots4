@@ -28,6 +28,7 @@
       type = "git";
       url = "https://github.com/shezdy/hyprsplit.git";
       ref = "refs/tags/v0.45.2";
+      allRefs = true;
       inputs.hyprland.follows = "hyprland";
     };
   };

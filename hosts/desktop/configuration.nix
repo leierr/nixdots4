@@ -38,6 +38,17 @@
         windowrulev2 = [ "monitor DP-2, class:^(vesktop)$" ];
         exec-once = [ "vesktop" ];
       };
+
+      programs.ssh = {
+        enable = true;
+        matchBlocks = {
+          "github.com" = {
+            hostname = "github.com";
+            user = "git";
+            identityFile = [ "~/.ssh/id_ed25519" ];
+          };
+        };
+      };
     })
   ];
 
