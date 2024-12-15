@@ -30,8 +30,9 @@
         }
       ];
 
-      # increase the gnome text size a bit
+      # Scaling stuff
       dconf.settings."org/gnome/desktop/interface".text-scaling-factor = 1.1;
+      system_settings.graphical_environment.cursor.size = 32;
 
       wayland.windowManager.hyprland.settings = {
         general.border_size = lib.mkForce 3;
