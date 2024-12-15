@@ -42,7 +42,10 @@ in
       services.displayManager.ly = {
         enable = true;
         package = pkgs.ly;
-        settings = {};
+        settings = {
+          animation = "doom";
+          hide_borders = true;
+        };
       };
     })
 

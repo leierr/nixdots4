@@ -90,14 +90,14 @@ in
               decoration = {
                 rounding = 10;
                 blur.enabled = false;
-
-                # shadows
-                drop_shadow = true;
-                shadow_ignore_window = true;
-                shadow_offset = "0 0";
-                shadow_range = 40;
-                shadow_render_power = 6;
-                "col.shadow" = "rgba(0, 0, 0, 0.9)";
+                shadow = {
+                  enabled = true;
+                  ignore_window = true;
+                  range = 40;
+                  render_power = 6;
+                  offset = "0 0";
+                  color = "rgba(0, 0, 0, 0.9)";
+                };
               };
 
               animations = {

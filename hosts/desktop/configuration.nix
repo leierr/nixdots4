@@ -40,5 +40,5 @@
     })
   ];
 
-  environment.systemPackages = with pkgs; [ tmux go slack pavucontrol fzf meld obsidian obs-studio fastfetch spotify remmina brave xfce.mousepad jq ];
+  environment.systemPackages = with pkgs; [ tmux go pavucontrol fzf meld obsidian fastfetch spotify brave xfce.mousepad jq ];
 }
