@@ -18,17 +18,9 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Hyprland and Hyprsplit
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland.git";
-      submodules = true;
-      ref = "refs/tags/v0.45.2";
-    };
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland.git?ref=refs/tags/v0.45.2&submodules=1";
     hyprsplit = {
-      type = "git";
-      url = "https://github.com/shezdy/hyprsplit.git";
-      ref = "refs/tags/v0.45.2";
-      allRefs = true;
+      url = "git+https://github.com/shezdy/hyprsplit.git?ref=refs/tags/v0.45.2";
       inputs.hyprland.follows = "hyprland";
     };
   };
