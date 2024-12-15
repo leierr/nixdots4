@@ -1,4 +1,4 @@
-{ pkgs, lib, inputs, ... }:
+{ pkgs, lib, flakeInputs, ... }:
 {
   # user account
   system_settings.core_modules.enable = true;

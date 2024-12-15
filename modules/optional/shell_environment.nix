@@ -44,7 +44,7 @@ in
           programs.git = {
             enable = true;
             extraConfig = {
-              url."git@github.com:".insteadOf = "https://github.com/";
+              url."https://github.com/".insteadOf = "git@github.com:";
               credential.helper = "cache --timeout=36000";
               safe.directory = "*";
             };
