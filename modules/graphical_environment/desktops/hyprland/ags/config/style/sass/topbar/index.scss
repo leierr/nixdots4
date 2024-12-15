@@ -1,0 +1,17 @@
+@use 'sass:color';
+
+$topbar_widget_maxheight: 28pt;
+
+.topbar {
+    background-color: $bg;
+
+    .topbar_centerbox {
+        margin: 6pt 8pt;
+    }
+}
+
+@import 'workspaces.scss';
+@import 'nixlogo.scss';
+@import 'datetime.scss';
+@import 'battery.scss';
+@import 'systemtray.scss';
