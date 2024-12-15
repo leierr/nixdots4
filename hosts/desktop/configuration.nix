@@ -1,11 +1,15 @@
 { pkgs, lib, inputs, ... }:
 {
+  # user account
   system_settings.core_modules.enable = true;
   system_settings.primary_user.username = "leier";
+  # shell
+  system_settings.primary_user.shell = pkgs.zsh;
   system_settings.shell_environment.enable = true;
-
+  system_settings.shell_environment.zsh.enable = true;
+  #
   system_settings.virtualization.libvirt = { enable = true; virt_manager.enable = true; };
-
+  #
   system_settings.graphical_environment.enable = true;
   system_settings.graphical_environment.applications.gaming.enable = true;
   system_settings.graphical_environment.desktops.hyprland.enable = true;
@@ -36,5 +40,5 @@
     })
   ];
 
-  environment.systemPackages = with pkgs; [ tmux go unstable.logseq slack pavucontrol fzf meld obsidian obs-studio fastfetch spotify remmina brave xfce.mousepad jq ];
+  environment.systemPackages = with pkgs; [ tmux go slack pavucontrol fzf meld obsidian obs-studio fastfetch spotify remmina brave xfce.mousepad jq ];
 }

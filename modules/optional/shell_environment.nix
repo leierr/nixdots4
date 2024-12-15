@@ -10,8 +10,11 @@ in
     mlocate.enable = lib.mkOption { type = lib.types.bool; default = cfg.enable; };
     gnupg.enable = lib.mkOption { type = lib.types.bool; default = cfg.enable; };
     git.enable = lib.mkOption { type = lib.types.bool; default = cfg.enable; };
+    starship.enable = lib.mkOption { type = lib.types.bool; default = cfg.enable; };
     editor.enable = lib.mkOption { type = lib.types.bool; default = cfg.enable; };
     editor.program = lib.mkOption { type = lib.types.enum [ "nvim" ]; default = "nvim"; };
+    #
+    zsh.enable = lib.mkEnableOption "";
   };
 
   config = lib.mkIf cfg.enable (lib.mkMerge [
@@ -60,6 +63,30 @@ in
         vimAlias = true;
         defaultEditor = true;
       };
+    })
+
+    # Starship
+    ( lib.mkIf ( cfg.starship.enable ) { programs.starship.enable = true; })
+
+    # ZSH
+    ( lib.mkIf cfg.zsh.enable {
+      programs.zsh.enable = true;
+      home_manager_modules = [
+        ({
+          programs.zsh = {
+            enable = true;
+            oh-my-zsh.enable = lib.mkIf cfg.zsh.ohMyZsh.enable true;
+            oh-my-zsh.plugins = [];
+            syntaxHighlighting.enable = true;
+            autosuggestion.enable = true;
+            envExtra = ''
+              ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=246"
+            '';
+            history.save = 690000;
+            history.size = 690000;
+          };
+        })
+      ];
     })
   ]);
 }
