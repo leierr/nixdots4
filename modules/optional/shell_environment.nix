@@ -75,8 +75,8 @@ in
         ({
           programs.zsh = {
             enable = true;
-            oh-my-zsh.enable = lib.mkIf cfg.zsh.ohMyZsh.enable true;
-            oh-my-zsh.plugins = [];
+            oh-my-zsh.enable = true;
+            oh-my-zsh.plugins = [ "git" "kubectl" "tmux" "systemd" ];
             syntaxHighlighting.enable = true;
             autosuggestion.enable = true;
             envExtra = ''
