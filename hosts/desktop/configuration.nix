@@ -3,6 +3,7 @@
   # user account
   system_settings.core_modules.enable = true;
   system_settings.primary_user.username = "leier";
+  system_settings.privilege_escalation.requirePasswordForWheel = false;
   # shell
   system_settings.primary_user.shell = pkgs.zsh;
   system_settings.shell_environment.enable = true;
