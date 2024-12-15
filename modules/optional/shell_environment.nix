@@ -56,7 +56,7 @@ in
     })
 
     # NVIM
-    ( lib.mkIf ( cfg.editor == "nvim" && cfg.editor.enable ) {
+    ( lib.mkIf ( cfg.editor.program == "nvim" && cfg.editor.enable ) {
       programs.neovim = {
         enable = true;
         viAlias = true;
