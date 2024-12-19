@@ -15,6 +15,9 @@
   system_settings.graphical_environment.applications.gaming.enable = true;
   system_settings.graphical_environment.desktops.hyprland.enable = true;
 
+  # scaling stuff
+  system_settings.graphical_environment.cursor.size = 32;
+
   # overwriting home-manager values
   home_manager_modules = [
     ({
@@ -30,9 +33,8 @@
         }
       ];
 
-      # Scaling stuff
+      # more scaling stuff
       dconf.settings."org/gnome/desktop/interface".text-scaling-factor = 1.1;
-      system_settings.graphical_environment.cursor.size = 32;
 
       wayland.windowManager.hyprland.settings = {
         general.border_size = lib.mkForce 3;
