@@ -25,11 +25,6 @@ in
       security.doas = {
         enable = true;
         wheelNeedsPassword = cfg.requirePasswordForWheel;
-        extraRules = lib.mkForce [{
-          groups = [ "wheel" ];
-          noPass = !cfg.requirePasswordForWheel;
-          keepEnv = true;
-        }];
       };
       environment.interactiveShellInit = ''alias sudo="doas"'';
       security.sudo.enable = false;
