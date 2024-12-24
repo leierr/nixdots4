@@ -23,7 +23,7 @@
     ({
       programs.git.includes = [
         {
-          condition = "hasconfig:remote.*.url:git@github.com:*/**";
+          condition = "hasconfig:remote.*.url:git@github.com:**/**";
           contents = {
             user = {
               name = "Lars Smith Eier";
@@ -55,5 +55,5 @@
     })
   ];
 
-  environment.systemPackages = with pkgs; [ tmux go pavucontrol fzf meld obsidian fastfetch spotify brave xfce.mousepad jq ];
+  environment.systemPackages = with pkgs; [ tmux wireguard-tools age sops pavucontrol fzf meld obsidian fastfetch spotify brave xfce.mousepad jq ];
 }

@@ -8,7 +8,6 @@ in
 
   config = lib.mkIf cfg.enable {
     networking = {
-      wireless.enable = false; # network manager handles wifi.
       networkmanager = {
         enable = true;
         wifi = {

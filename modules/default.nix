@@ -1,4 +1,4 @@
-{ inputs, lib, config, ... }:
+{ flakeInputs, lib, config, ... }:
 {
   options = {
     home_manager_modules = lib.mkOption {
@@ -33,7 +33,7 @@
     home-manager = lib.mkIf config.system_settings.primary_user.enable {
       useUserPackages = true;
       useGlobalPkgs = true;
-      extraSpecialArgs = { inherit inputs; };
+      extraSpecialArgs = { inherit flakeInputs; };
       users.${config.system_settings.primary_user.username} = {
         imports = config.home_manager_modules;
         home.stateVersion = "${config.system.stateVersion}";
