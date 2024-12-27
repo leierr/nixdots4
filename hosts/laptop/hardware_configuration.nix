@@ -54,7 +54,7 @@
     #hardware.trackpoint.sensitivity = 200;  # Optionally adjusts the sensitivity of the TrackPoint device, if uncommented.
   };
 
-  powerManagement.cpuFreqGovernor = "powersave";
+  powerManagement.cpuFreqGovernor = "performance";
 
   #services.fstrim.enable = true; # SSD optimization
   #services.fwupd.enable = true;  # Firmware updates
