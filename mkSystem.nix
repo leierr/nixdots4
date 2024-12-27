@@ -4,7 +4,7 @@ let
   nixpkgs = flakeInputs.nixpkgs;
   configuration = ./hosts/${host_name}/configuration.nix;
   hardware_configuration = ./hosts/${host_name}/hardware_configuration.nix;
-  monitors_configuration = ( ./. + "./hosts/${host_name}/monitors.nix" );
+  monitors_configuration = (if (builtins.pathExists ./hosts/${host_name}/monitors.nix) then ./hosts/${host_name}/monitors.nix else {});
 in
 nixpkgs.lib.nixosSystem {
   inherit system;
