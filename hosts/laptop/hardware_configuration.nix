@@ -69,5 +69,5 @@
     #  HandleLidSwitch=suspend
     #  HandleHibernateKey=hibernate
     #'';
-  }
+  };
 }
