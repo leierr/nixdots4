@@ -5,8 +5,8 @@
       host_name, system_state_version,
       system ? "x86_64-linux",
       configuration ? ( ./. + "/hosts/${host_name}/configuration.nix"),
-      monitors_configuration ? ( ./. + "/hosts/${host_name}/monitors.nix" ),
       hardware_configuration ? ( ./. + "/hosts/${host_name}/hardware_configuration.nix" ),
+      monitors_configuration ? ( ./. + "/hosts/${host_name}/monitors.nix" ),
     }:
     flakeInputs.nixpkgs.lib.nixosSystem {
       inherit system;
@@ -26,7 +26,7 @@
   in {
     nixosConfigurations = {
       desktop = mkSystem { host_name = "desktop"; system_state_version = "24.11"; };
-      laptop = mkSystem { host_name = "laptop"; system_state_version = "24.11"; };
+      laptop = mkSystem { host_name = "laptop"; system_state_version = "24.11"; monitors_configuration = {}; };
     };
   };
 
