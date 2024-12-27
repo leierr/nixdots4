@@ -1,5 +1,5 @@
 { flakeInputs }: # so I dont have to specify it every time im creating a new system.
-{ host_name, system_state_version, system ? "x86_64-linux" 
+{ host_name, system_state_version, system ? "x86_64-linux",
   monitors_configuration ? ( ./. + ./hosts/${host_name}/monitors.nix )
   hardware_configuration ? ( ./. + ./hosts/${host_name}/hardware_configuration.nix )
 }:
