@@ -4,7 +4,7 @@
     mkSystem = (import ./mkSystem.nix { inherit flakeInputs; });
   in {
     nixosConfigurations = {
-      desktop = mkSystem { host_name = "desktop"; system_state_version = "24.11"; extraModules = [ ./hosts/${host_name}/monitors.nix ]; };
+      desktop = mkSystem { host_name = "desktop"; system_state_version = "24.11"; extraFilesToInclude = [ "monitors.nix" ]; };
       laptop = mkSystem { host_name = "laptop"; system_state_version = "24.11"; };
     };
   };

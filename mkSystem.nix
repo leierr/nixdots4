@@ -1,5 +1,5 @@
 { flakeInputs }: # so I dont have to specify it every time im creating a new system.
-{ host_name, system_state_version, system ? "x86_64-linux", extraModules ? {} }:
+{ host_name, system_state_version, system ? "x86_64-linux", extraFilesToInclude ? [] }:
 let
   nixpkgs = flakeInputs.nixpkgs;
   configuration = ./hosts/${host_name}/configuration.nix;
@@ -13,7 +13,7 @@ nixpkgs.lib.nixosSystem {
   modules = [
     configuration
     hardware_configuration
-    (nixpkgs.lib.attrValues extraModules)
+    ( builtins.map (file: ./hosts/${host_name}/${file}) extraFilesToInclude )
     ./modules
     flakeInputs.home-manager.nixosModules.home-manager
     {
