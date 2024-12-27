@@ -14,9 +14,7 @@
         inherit flakeInputs;
       };
       modules = [
-        configuration
-        hardware_configuration
-        monitors_configuration
+        configuration hardware_configuration monitors_configuration
         ./modules
         flakeInputs.home-manager.nixosModules.home-manager
         {
@@ -28,7 +26,7 @@
   in {
     nixosConfigurations = {
       desktop = mkSystem { host_name = "desktop"; system_state_version = "24.11"; };
-      laptop = mkSystem { host_name = "laptop"; system_state_version = "24.11"; };
+      laptop = mkSystem { host_name = "laptop"; system_state_version = "24.11"; hardware_configuration = {}; };
     };
   };
 
