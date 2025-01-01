@@ -13,16 +13,15 @@
   swapDevices = [ ];
 
   boot.kernelModules = [
-    "acpi_call" # Useful for power management, especially for turning off the discrete GPU if needed.
+    #"acpi_call" # Useful for power management, especially for turning off the discrete GPU if needed.
+    #"i915" # Intel graphics driver for integrated graphics (needed for boot display).
+    #"iwlwifi" # Wifi drivers
+    #"btusb" # I tink I need it to make bluetooth work optimally :shrug:
   ];
 
   boot.initrd = {
     verbose = false;
-    kernelModules = [
-      "i915" # Intel graphics driver for integrated graphics (needed for boot display).
-      "iwlwifi" # Wifi drivers
-      "btusb" # I tink I need it to make bluetooth work optimally :shrug:
-    ];
+    kernelModules = [];
     availableKernelModules = [
       "xhci_pci" # USB 3.0 support.
       "ahci" # SATA controller driver (essential for your internal SSD).
@@ -33,8 +32,6 @@
       # "thunderbolt" # Thunderbolt devices.
     ];
   };
-
-  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
 
   hardware = {
     cpu.intel.updateMicrocode = true;  # Installs and applies Intel microcode updates for CPU fixes and security patches.
@@ -55,13 +52,4 @@
   };
 
   powerManagement.cpuFreqGovernor = "performance";
-
-  #services.fstrim.enable = true; # SSD optimization
-  #services.fwupd.enable = true;  # Firmware updates
-
-  #services.logind.extraConfig = ''
-  #  HandleSuspendKey=suspend
-  #  HandleLidSwitch=suspend
-  #  HandleHibernateKey=hibernate
-  #'';
 }

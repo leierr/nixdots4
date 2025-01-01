@@ -8,21 +8,24 @@ in
   options.system_settings.graphical_environment.desktops.gnome.enable = lib.mkEnableOption "";
 
   config = lib.mkIf (cfg.enable) {
-    # install gnome globally
+    # install Gnome
     services.xserver.desktopManager.gnome.enable = true;
 
     # cool nautilus picture/video previewer
     services.gnome.sushi.enable = true;
     environment.systemPackages = with pkgs; [
-      nautilus gnomeExtensions.appindicator
+      nautilus
+      gnomeExtensions.tray-icons-reloaded
       gnomeExtensions.dash-to-panel
+      mate.mate-terminal
+      libappindicator
     ]; # fjernet: libappindicator, vet ikke om jeg trenger det
 
     # disable most default gnome crap
     services.gnome.core-utilities.enable = false;
     services.gnome.localsearch.enable = false;
     services.gnome.tinysparql.enable = false;
-    environment.gnome.excludePackages = (with pkgs; [ gnome-tour ]);
+    environment.gnome.excludePackages = with pkgs; [ gnome-tour ];
 
     # make electron/chromium apps act nicely
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -52,9 +55,9 @@ in
 
           # extensions
           settings."org/gnome/shell".disable-user-extensions = false;
-          settings."org/gnome/shell".enabled-extensions = [
-            pkgs.gnomeExtensions.appindicator.extensionUuid
-            pkgs.gnomeExtensions.dash-to-panel.extensionUuid
+          settings."org/gnome/shell".enabled-extensions = with pkgs.gnomeExtensions; [
+	          tray-icons-reloaded.extensionUuid
+            dash-to-panel.extensionUuid
           ];
           settings."org/gnome/shell/extensions/dash-to-panel".dot-style-unfocused = "DASHES";
           settings."org/gnome/shell/extensions/dash-to-panel".show-apps-icon-file = "${./assets/nixos.svg}";

@@ -107,6 +107,9 @@ cat <<EOF > /root/basic_ass_system/flake.nix
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
             nixpkgs.config.allowUnfree = true;
 
+            # autologin as root
+	          services.getty.autologinUser = "root";
+
             # making the shell a little more useable
             programs.neovim = { enable = true; viAlias = true; vimAlias = true; defaultEditor = true; withPython3 = false; withNodeJs = false; withRuby = false; };
             programs.starship.enable = true;

@@ -7,7 +7,7 @@
         system = "x86_64-linux";
         modules = [
           "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-          ({ pkgs, ... }: {
+          ({ pkgs, lib, ... }: {
             # console
             console = { earlySetup = true; keyMap = "no"; };
 
@@ -29,6 +29,13 @@
               (writeShellScriptBin "leier-nix-install" ( builtins.readFile ./install.sh ))
             ];
 
+            # ssh for remote install
+            services.openssh.enable = true;
+            services.openssh.settings.PermitRootLogin = "yes";
+            services.openssh.settings.PasswordAuthentication = false;
+            services.openssh.settings.KbdInteractiveAuthentication = false;
+            users.users.root.openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICKkHlDWS9S4YWSPSah1Pea5Jpt6+zasaPed0cR2FFhh" ];
+
             # nix settings.
             nix.settings.experimental-features = [ "nix-command" "flakes" ];
             nixpkgs.config.allowUnfree = true;
@@ -38,6 +45,7 @@
 
             # making the shell a little more useable
             programs.neovim = { enable = true; viAlias = true; vimAlias = true; defaultEditor = true; withPython3 = false; withNodeJs = false; withRuby = false; };
+            programs.starship.enable = true;
           })
         ];
       };

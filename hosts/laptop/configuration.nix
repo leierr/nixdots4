@@ -41,5 +41,7 @@
     })
   ];
 
+  networking.firewall.checkReversePath = false;
+
   environment.systemPackages = with pkgs; [ meld obsidian fastfetch spotify brave xfce.mousepad jq ];
 }
