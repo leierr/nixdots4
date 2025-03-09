@@ -16,7 +16,7 @@ in
   };
 
   imports = [
-    ./base/applications.nix ./base/audio.nix ./base/cursor.nix
+    ./base/applications ./base/audio.nix ./base/cursor.nix
     ./base/fonts.nix ./base/gtk.nix ./base/qt.nix
     ./base/xdg.nix
     #

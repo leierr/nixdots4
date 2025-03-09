@@ -8,10 +8,13 @@ in
     enable = lib.mkEnableOption "";
     vscodium.enable = lib.mkOption { type = lib.types.bool; default = cfg.enable; };
     vesktop.enable = lib.mkOption { type = lib.types.bool; default = cfg.enable; };
+    foot.enable = lib.mkOption { type = lib.types.bool; default = cfg.enable; };
     gaming.enable = lib.mkEnableOption ""; # manual toggle
   };
 
   config = lib.mkIf cfg.enable (lib.mkMerge [
+    # toggle for installing and configuring foot terminal
+    ( lib.mkIf cfg.foot.enable (import ./foot_terminal { inherit theme; }) )
     # VSCODIUM
     ( lib.mkIf cfg.vscodium.enable {
       home_manager_modules = [

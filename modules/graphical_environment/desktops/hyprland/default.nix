@@ -11,15 +11,13 @@ in
     hyprlock.enable = lib.mkOption { type = lib.types.bool; default = cfg.enable; };
     hypridle.enable = lib.mkOption { type = lib.types.bool; default = cfg.enable; };
     ags.enable = lib.mkOption { type = lib.types.bool; default = cfg.enable; };
-    terminal.enable = lib.mkOption { type = lib.types.bool; default = cfg.enable; };
   };
 
   config = lib.mkIf (cfg.enable) (lib.mkMerge [
     (lib.mkIf cfg.hyprpaper.enable (import ./hyprpaper { inherit lib pkgs theme; }))
     (lib.mkIf cfg.hyprlock.enable (import ./hyprlock { inherit lib pkgs theme; }))
     (lib.mkIf cfg.hypridle.enable (import ./hypridle { inherit lib pkgs; }))
-    (lib.mkIf cfg.ags.enable (import ./ags { inherit lib pkgs theme; }))
-    (lib.mkIf cfg.terminal.enable (import ./terminal { inherit theme; }))
+    (lib.mkIf cfg.ags.enable (import ./ags { inherit lib pkgs theme flakeInputs; }))
     (import ./rofi { inherit lib pkgs theme; })
 
     {
@@ -33,15 +31,16 @@ in
       # NAUTILUS FUNCTIONALITY
       services.gvfs.enable = true;
 
+      # Terminal of choice
+      system_settings.graphical_environment.applications.foot.enable = true;
+
       home_manager_modules = [
         ({
           wayland.windowManager.hyprland = {
             enable = true;
             xwayland.enable = true;
             package = flakeInputs.hyprland.packages.${pkgs.system}.hyprland;
-            plugins = [
-              flakeInputs.hyprsplit.packages.${pkgs.system}.hyprsplit
-            ];
+            plugins = [ flakeInputs.hyprsplit.packages.${pkgs.system}.hyprsplit ];
             settings = {
               # variables
               "$mod" = "SUPER";

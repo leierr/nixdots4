@@ -55,5 +55,7 @@
     })
   ];
 
-  environment.systemPackages = with pkgs; [ tmux wireguard-tools vagrant age sops pavucontrol fzf meld obsidian fastfetch spotify brave xfce.mousepad jq ];
+  networking.firewall.checkReversePath = false; # wireguard
+
+  environment.systemPackages = with pkgs; [ tmux wireguard-tools age sops pavucontrol fzf meld obsidian fastfetch spotify brave xfce.mousepad jq wofi ];
 }
