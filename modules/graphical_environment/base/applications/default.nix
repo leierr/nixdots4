@@ -2,6 +2,7 @@
 
 let
   cfg = config.system_settings.graphical_environment.applications;
+  theme = config.system_settings.graphical_environment.theme;
 in
 {
   options.system_settings.graphical_environment.applications = {

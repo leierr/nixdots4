@@ -8,10 +8,9 @@
         settings = {
           main = {
             term = "xterm-256color";
-            font = "Hack:size=14";
+            font = "Hack:size=16";
             resize-by-cells = "no"; # testing
             locked-title = "yes";
-            # bold-text-in-bright - Maybe...
             utmp-helper = "none";
           };
 
@@ -83,7 +82,7 @@
             bright7 = "${builtins.replaceStrings ["#"] [""] theme.white_light}";   # Bright white
           };
         };
-      }
+      };
     })
-  ]
+  ];
 }
