@@ -10,11 +10,17 @@
 
   # Import all the things. Everything is using an "enable" toggle
   imports = [
-    ./core/boot_loader.nix ./core/locale.nix ./core/network.nix
-    ./core/primary_user.nix ./core/privilege_escalation.nix ./core/nixos.nix
-    #
-    ./optional/bluetooth.nix ./optional/shell_environment.nix ./optional/virtualization.nix
-    #
+    ./base/boot_loader.nix
+    ./base/locale.nix
+    ./base/network.nix
+    ./base/nixos.nix
+    ./base/primary_user.nix
+    ./base/privilege_escalation.nix
+
+    ./optional/bluetooth.nix
+    ./optional/shell_environment.nix
+    ./optional/virtualization.nix
+
     ./graphical_environment
   ];
 

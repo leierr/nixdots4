@@ -254,7 +254,7 @@ in
         grimblast # screenshot tool
         wl-clipboard # clipboard manipulation tool
         nautilus sushi file-roller # filebrowser
-        firefox # browser
+        firefox-bin # browser
         networkmanagerapplet # dependencies
       ];
     }

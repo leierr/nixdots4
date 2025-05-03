@@ -8,7 +8,7 @@ in
 
   config = lib.mkIf (cfg.enable) {
     # mimeapps dependencies
-    environment.systemPackages = with pkgs; [ gthumb firefox mpv transmission_4  ];
+    environment.systemPackages = with pkgs; [ gthumb firefox-bin mpv transmission_4  ];
 
     home_manager_modules = [
       ({ ... }@home_manager_inputs: {
