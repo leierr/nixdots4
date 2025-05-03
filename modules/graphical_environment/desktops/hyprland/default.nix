@@ -253,7 +253,7 @@ in
       environment.systemPackages = with pkgs; [
         grimblast # screenshot tool
         wl-clipboard # clipboard manipulation tool
-        nautilus sushi # filebrowser
+        nautilus sushi file-roller # filebrowser
         firefox # browser
         networkmanagerapplet # dependencies
       ];

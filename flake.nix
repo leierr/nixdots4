@@ -1,7 +1,7 @@
 {
   outputs = { nixpkgs, home-manager, ... }@flakeInputs:
   let
-    mkSystem = (import ./mkSystem.nix { inherit flakeInputs; });
+    mkSystem = (import ./lib/mkSystem.nix { inherit flakeInputs; });
   in {
     nixosConfigurations = {
       desktop = mkSystem { host_name = "desktop"; system_state_version = "24.11"; };
