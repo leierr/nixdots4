@@ -73,7 +73,7 @@
     }
   ];
 
-  home_manager_modules = [
+  homeModules = [
     ({
       systemd.user.services.kanshi = lib.mkForce {}; # disable the systemd service.
       services.kanshi = {

@@ -1,12 +1,10 @@
 { config, lib, flakeInputs, ... }:
 
 let
-  cfg = config.system_settings.nixos;
+  cfg = config.systemModules.nixos;
 in
 {
-  options.system_settings.nixos = {
-    enable = lib.mkEnableOption "";
-  };
+  options.systemModules.nixos.enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable or false; };
 
   config = lib.mkIf cfg.enable {
     nixpkgs.config.hostPlatform = config.nixpkgs.system;

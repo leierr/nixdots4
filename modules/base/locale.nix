@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.system_settings.locale;
+  cfg = config.systemModules.locale;
 in
 {
-  options.system_settings.locale.enable = lib.mkEnableOption "";
+  options.systemModules.locale.enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable or false; };
 
   config = lib.mkIf cfg.enable {
     # Configure console keymap & font
@@ -34,15 +34,12 @@ in
       LC_TIME = "nb_NO.UTF-8";
     };
 
-    # fix stupid perl error when rebuilding the system https://github.com/NixOS/nixpkgs/issues/8398
-    # environment.systemPackages = [ pkgs.glibcLocales ]; - Should be fixed.
-
     # xserver defaults
     services.xserver.xkb.variant = "nodeadkeys";
     services.xserver.xkb.layout = "no";
 
     # home manager stuff
-    home_manager_modules = [
+    homeModules = [
       ({
         # hyprland defaults
         wayland.windowManager.hyprland.settings.input.kb_layout = "no";

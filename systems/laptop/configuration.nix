@@ -1,20 +1,13 @@
 { pkgs, lib, flakeInputs, ... }:
 {
-  # user account
-  system_settings.core_modules.enable = true;
-  system_settings.primary_user.username = "leier";
-  system_settings.privilege_escalation.requirePasswordForWheel = false;
-  # shell
-  system_settings.primary_user.shell = pkgs.zsh;
-  system_settings.shell_environment.enable = true;
-  system_settings.shell_environment.zsh.enable = true;
+  systemModules.privilegeEscalation.requirePasswordForWheel = false;
   #
-  system_settings.graphical_environment.enable = true;
-  system_settings.graphical_environment.desktops.hyprland.enable = true;
-  system_settings.graphical_environment.desktops.gnome.enable = true;
+  systemModules.graphicalEnvironment.enable = true;
+  systemModules.graphicalEnvironment.desktops.hyprland.enable = true;
+  systemModules.graphicalEnvironment.desktops.gnome.enable = true;
 
   # overwriting home-manager values
-  home_manager_modules = [
+  homeModules = [
     ({
       programs.git.includes = [
         {
