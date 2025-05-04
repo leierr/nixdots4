@@ -4,7 +4,7 @@ let
   cfg = config.systemModules.nixos;
 in
 {
-  options.systemModules.nixos.enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable or false; };
+  options.systemModules.nixos.enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable; };
 
   config = lib.mkIf cfg.enable {
     nixpkgs.config.hostPlatform = config.nixpkgs.system;

@@ -25,11 +25,11 @@
 
   config = {
     # home-manager setup
-    home-manager = lib.mkIf config.systemModules.primary_user.enable {
+    home-manager = lib.mkIf config.systemModules.primaryUser.enable {
       useUserPackages = true;
       useGlobalPkgs = true;
       extraSpecialArgs = { inherit flakeInputs; };
-      users.${config.systemModules.primary_user.username} = {
+      users.${config.systemModules.primaryUser.username} = {
         imports = config.homeModules;
         home.stateVersion = "${config.system.stateVersion}";
       };

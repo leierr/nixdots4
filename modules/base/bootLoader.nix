@@ -5,7 +5,7 @@ let
 in
 {
   options.systemModules.bootLoader = {
-    enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable or false; };
+    enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable; };
 
     provider = lib.mkOption {
       default = "grub";

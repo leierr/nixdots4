@@ -9,7 +9,7 @@ in
       enable = lib.mkEnableOption "";
       virtManager.enable = lib.mkOption {
         type = lib.types.bool;
-        default = ( config.systemModules.graphicalEnvironment.enable && cfg.libvirt.enable ) or false;
+        default = ( config.systemModules.graphicalEnvironment.enable && cfg.libvirt.enable );
       };
     };
 

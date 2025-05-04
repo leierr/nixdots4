@@ -5,7 +5,7 @@ let
 in
 {
   options.systemModules.editor = {
-    enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable or false; };
+    enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable; };
     program = lib.mkOption { type = lib.types.enum [ "nvim" ]; default = "nvim"; };
   };
 

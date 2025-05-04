@@ -5,7 +5,7 @@ let
 in
 {
   options.systemModules.network = {
-    enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable or false; };
+    enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable; };
 
     dnscryptProxy2 = lib.mkOption { type = lib.types.bool; default = true; };
   };

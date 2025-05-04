@@ -8,7 +8,7 @@ let
 in
 {
   options.systemModules.primaryUser = {
-    enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable or false; };
+    enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable; };
     username = lib.mkOption { type = lib.types.singleLineStr; default = "leier"; };
     shell = lib.mkOption { type = lib.types.enum [ "zsh" ]; default = "zsh"; };
 
@@ -32,10 +32,11 @@ in
       programs.starship.enable = true;
 
       # Ensure group for user exists
-      # users.extraGroups.${cfg.username}.name = cfg.username;
+      users.groups.${cfg.username} = {};
 
       # Create the user account
       users.users.${cfg.username} = {
+        isNormalUser = true; # required by nixos...
         home = "/home/${cfg.username}";
         homeMode = "0770";
         createHome = true;

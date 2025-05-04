@@ -50,5 +50,5 @@
 
   networking.firewall.checkReversePath = false; # wireguard
 
-  environment.systemPackages = with pkgs; [ tmux wireguard-tools unstable.bottles age sops pavucontrol fzf meld obsidian fastfetch spotify brave xfce.mousepad jq wofi gamemode ];
+  environment.systemPackages = with pkgs; [ tmux wireguard-tools unstable.bottles age sops pavucontrol fzf meld obsidian fastfetch spotify brave xfce.mousepad jq ];
 }

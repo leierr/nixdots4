@@ -5,7 +5,7 @@ let
 in
 {
   options.systemModules.utils = {
-    enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable or false; };
+    enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable; };
     
     # default enabled
     git.enable = lib.mkOption { type = lib.types.bool; default = true; };

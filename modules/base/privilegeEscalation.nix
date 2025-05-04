@@ -5,7 +5,7 @@ let
 in
 {
   options.systemModules.privilegeEscalation = {
-    enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable or false; };
+    enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable; };
 
     implementation = lib.mkOption {
       type = lib.types.enum [ "sudo" "doas" ];

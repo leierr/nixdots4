@@ -4,7 +4,7 @@ let
   cfg = config.systemModules.locale;
 in
 {
-  options.systemModules.locale.enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable or false; };
+  options.systemModules.locale.enable = lib.mkOption { type = lib.types.bool; default = config.systemModules.coreModules.enable; };
 
   config = lib.mkIf cfg.enable {
     # Configure console keymap & font
