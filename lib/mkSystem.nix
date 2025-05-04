@@ -3,16 +3,16 @@
 let
   nixpkgs = flakeInputs.nixpkgs;
   configuration = ../systems/${host_name}/configuration.nix;
-  hardware_configuration = ../systems/${host_name}/hardware_configuration.nix;
-  monitors_configuration = if (builtins.pathExists ../systems/${host_name}/monitors.nix) then ../systems/${host_name}/monitors.nix else {};
+  hardwareConfiguration = ../systems/${host_name}/hardware.nix;
+  monitorsConfiguration = if (builtins.pathExists ../systems/${host_name}/monitors.nix) then ../systems/${host_name}/monitors.nix else {};
 in
 nixpkgs.lib.nixosSystem {
   inherit system;
   specialArgs = { inherit flakeInputs; };
   modules = [
     configuration
-    hardware_configuration
-    monitors_configuration
+    hardwareConfiguration
+    monitorsConfiguration
     ../modules
     flakeInputs.home-manager.nixosModules.home-manager
     {
