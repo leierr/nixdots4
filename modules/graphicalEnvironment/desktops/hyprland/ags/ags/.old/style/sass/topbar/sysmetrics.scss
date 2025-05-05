@@ -1,0 +1,13 @@
+.topbar_submodules_sysmetrics_cpu, .topbar_submodules_sysmetrics_ram {
+  min-height: $topbar_widget_max_height;
+  border-radius: $topbar_widget_max_height * .1;
+  padding: 0 6pt;
+  font-weight: bold;
+
+  // icon - label spacing calculated in pt 
+  > *:not(:first-child) { margin-left: 4pt; }
+}
+
+// color is defined as svg > style > fill inside the .svg file.
+.topbar_submodules_sysmetrics_cpu > image { color: SlateGray; font-size: $topbar_widget_max_height * .55; }
+.topbar_submodules_sysmetrics_ram > image { color: MediumSeaGreen; font-size: $topbar_widget_max_height * .55; }

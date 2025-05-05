@@ -1,0 +1,13 @@
+.topbar_submodules_systray {
+  min-height: $topbar_widget_max_height;
+  border-radius: $topbar_widget_max_height * .2;
+  padding: 0 4pt;
+  margin: 0 0 0 6pt;
+  background-color: $bg1;
+}
+
+.topbar_submodules_systray_item {
+  min-height: $topbar_widget_max_height;
+  font-size: $topbar_widget_max_height *.6;
+  margin: 0 3pt;
+}

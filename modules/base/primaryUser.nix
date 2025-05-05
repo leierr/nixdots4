@@ -28,7 +28,7 @@ in
       users.users.root.hashedPassword = "!";
 
       # Global defaul shell
-      users.defaultUserShell = pkgs.bashInteractive;
+      users.defaultUserShell = lib.mkForce pkgs.bashInteractive;
       programs.starship.enable = true;
 
       # Ensure group for user exists
@@ -50,20 +50,32 @@ in
     (lib.mkIf (cfg.shell == "zsh") {
       users.users.${cfg.username}.shell = pkgs.zsh;
 
-      programs.zsh.enable = true;
+      programs.zsh = {
+        enable = true;
+        interactiveShellInit = "bindkey '^ ' autosuggest-accept";
+        ohMyZsh.enable = true;
+        ohMyZsh.plugins = [
+          "history-substring-search"
+          "z" # zoxide clone
+          "sudo" # press escape twice to add sudo
+          "extract" # extract file.tar.gz
+        ];
+        enableCompletion = true;
+        autosuggestions.enable = true;
+        autosuggestions.highlightStyle = "fg=246";
+        syntaxHighlighting.enable = true;
+        histSize = 10000; # in memory
+      };
+
       homeModules = [
         ({
           programs.zsh = {
             enable = true;
-            oh-my-zsh.enable = true;
-            oh-my-zsh.plugins = [ "git" "kubectl" "systemd" ];
-            syntaxHighlighting.enable = true;
-            autosuggestion.enable = true;
-            envExtra = ''
-              ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=246"
-            '';
-            history.save = 690000;
-            history.size = 690000;
+            history.save = 690000; # in .zsh_history
+            shellAliases = {
+              k = "kubectl";
+              ku = "kubie";
+            };
           };
         })
       ];

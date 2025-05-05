@@ -1,0 +1,53 @@
+@use '../nix_theme' as *;
+@use 'sass:color';
+
+.notification_popups_list { margin: 3pt; }
+
+.notification_popups_instance {
+  background-color: $bg1;
+  border-radius: 6pt;
+  min-width: 325pt;
+  border: 1pt $bg3 solid;
+  box-shadow: 2pt 2pt 4pt 2pt #000;
+  margin: 6pt;
+}
+
+.notification_popups_instance_title_box {
+  background-color: $bg2;
+  border-radius: 6pt 6pt 0 0;
+  padding: 8pt;
+
+  > label { font-weight: bold; }
+
+  > icon { font-size: 20pt; }
+
+  // spacing between icon and title
+  > *:not(:last-child) { margin-right: 4pt; }
+}
+
+.notification_popups_instance_text_box {
+  padding: 6pt;
+
+  // title
+  > label:first-child { font-weight: bold; }
+
+  // spacing between labels
+  > label:not(:last-child) { margin-bottom: 2pt; }
+}
+
+.notification_popups_instance_actions_container {
+  margin: 2pt 0 2pt 0;
+  padding: 4pt;
+
+  > button:not(:first-child) { margin-left: 4pt; }
+  button:first-child { border-radius: 6pt 0 0 6pt; }
+  button:last-child { border-radius: 0 6pt 6pt 0; }
+
+  > button {
+    background-color: $bg2;
+    padding: 4pt;
+    border: 1pt solid $bg3;
+    &:hover { background-color: $bg3; border: 1pt solid $bg4; }
+    &:hover:active { background-color: $bg4; border: 1pt solid $bg5; }
+  }
+}

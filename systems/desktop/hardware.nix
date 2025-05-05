@@ -27,17 +27,12 @@
     hardware.cpu.amd.updateMicrocode = true; # AMD CPU
     hardware.enableRedistributableFirmware = true;
     hardware.graphics = {
-      enable = true; # Mesa
+      enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [
-        rocmPackages.clr.icd # AMD OpenCL
-        amdvlk # AMDGPU vulkan
-      ];
-      extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk # AMDGPU vulkan 32 bit support
-      ];
     };
-
-    systemd.tmpfiles.rules = [ "L+ /opt/rocm/hip - - - - ${pkgs.rocmPackages.clr}" ];
+    hardware.amdgpu.amdvlk = {
+      enable = true;
+      support32Bit.enable = true;
+    };
   };
 }

@@ -1,0 +1,6 @@
+.topbar_submodules_os_logo {
+  image { font-size: $topbar_widget_max_height * .8; }
+  border-radius: $topbar_widget_max_height * .1;
+  min-height: $topbar_widget_max_height;
+  min-width: $topbar_widget_max_height;
+}

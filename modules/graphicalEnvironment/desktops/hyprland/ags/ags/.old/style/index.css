@@ -1,0 +1,210 @@
+*:not(popover):not(check):not(radio):not(arrow):not(tooltip) {
+  all: unset;
+  font-family: "Cantarell";
+  font-size: 13pt;
+  color: #f1f1f1;
+}
+
+window.popup > menu {
+  border-radius: 4pt;
+  background-color: #1C1C1C;
+  padding: 6pt;
+  border: 2pt solid #2F2F2F;
+}
+window.popup > menu separator {
+  background-color: #2F2F2F;
+  margin: 4pt 2pt;
+  min-height: 1pt; /* For horizontal separator */
+  min-width: 1pt; /* For vertical separator */
+}
+window.popup > menu menuitem {
+  padding: 4pt 8pt;
+  border-radius: 4pt;
+  margin: 0;
+}
+window.popup > menu menuitem:hover {
+  background-color: #0E66D0;
+}
+
+.topbar {
+  background-color: #000;
+}
+.topbar > .topbar_container {
+  margin: 4pt 0;
+}
+.topbar > .topbar_container > * > *:not(:first-child) {
+  margin-left: 4pt;
+}
+
+.topbar_submodules_os_logo {
+  border-radius: 2.4pt;
+  min-height: 24pt;
+  min-width: 24pt;
+}
+.topbar_submodules_os_logo image {
+  font-size: 19.2pt;
+}
+
+.topbar_submodules_workspaces,
+.topbar_submodules_workspaces * {
+  all: unset;
+}
+
+.topbar_submodules_workspaces_box > button {
+  min-height: 24pt;
+  min-width: 24pt;
+  font-weight: bold;
+  border-radius: 2.4pt;
+  color: rgba(241, 241, 241, 0.4);
+}
+.topbar_submodules_workspaces_box > button.occupied {
+  color: #f1f1f1;
+}
+.topbar_submodules_workspaces_box > button.active {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.topbar_submodules_workspaces_box > button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.topbar_submodules_datetime {
+  min-height: 24pt;
+  font-weight: bold;
+  padding: 0 10pt;
+  border-radius: 4.8pt;
+}
+.topbar_submodules_datetime:hover {
+  background-color: #1C1C1C;
+}
+.topbar_submodules_datetime:hover:active {
+  background-color: #2F2F2F;
+}
+
+.topbar_submodules_systray {
+  min-height: 24pt;
+  border-radius: 4.8pt;
+  padding: 0 4pt;
+  margin: 0 0 0 6pt;
+  background-color: #1C1C1C;
+}
+
+.topbar_submodules_systray_item {
+  min-height: 24pt;
+  font-size: 14.4pt;
+  margin: 0 3pt;
+}
+
+.topbar_submodules_sysmetrics_cpu, .topbar_submodules_sysmetrics_ram {
+  min-height: 24pt;
+  border-radius: 2.4pt;
+  padding: 0 6pt;
+  font-weight: bold;
+}
+.topbar_submodules_sysmetrics_cpu > *:not(:first-child), .topbar_submodules_sysmetrics_ram > *:not(:first-child) {
+  margin-left: 4pt;
+}
+
+.topbar_submodules_sysmetrics_cpu > image {
+  color: SlateGray;
+  font-size: 13.2pt;
+}
+
+.topbar_submodules_sysmetrics_ram > image {
+  color: MediumSeaGreen;
+  font-size: 13.2pt;
+}
+
+.topbar_submodules_weather_widget {
+  min-height: 24pt;
+  border-radius: 2.4pt;
+  padding: 0 6pt;
+}
+.topbar_submodules_weather_widget .topbar_submodules_weather_widget_celsius {
+  font-size: 9.6pt;
+  margin-bottom: 4.8pt;
+}
+.topbar_submodules_weather_widget label {
+  font-weight: bold;
+}
+.topbar_submodules_weather_widget > *:not(:first-child) {
+  margin-left: 4pt;
+}
+.topbar_submodules_weather_widget image {
+  font-size: 16.8pt;
+}
+
+.notification_popups_widget_container {
+  padding: 6pt;
+}
+.notification_popups_widget_container > * {
+  margin-bottom: 6pt;
+}
+
+.notification_popups_container {
+  border-radius: 8pt;
+  min-width: 325pt;
+}
+.notification_popups_container .notification_popups_topbar_container {
+  background-color: #1C1C1C;
+  border-radius: 8pt 8pt 0 0;
+  padding: 8pt 10pt;
+}
+.notification_popups_container .notification_popups_topbar_container .notification_popups_label_title {
+  font-weight: bold;
+}
+.notification_popups_container .notification_popups_body_container {
+  background-color: #2F2F2F;
+  border-radius: 0 0 8pt 8pt;
+  padding: 8pt 10pt;
+}
+.notification_popups_container .notification_popups_body_container .notification_popups_icon {
+  font-size: 40pt;
+  background-color: transparent;
+}
+.notification_popups_container .notification_popups_body_container .notification_popups_label_summary {
+  font-weight: bold;
+}
+.notification_popups_container .notification_popups_body_container > box:first-child > *:not(:first-child) {
+  margin-left: 8pt;
+}
+.notification_popups_container .notification_popups_body_container > *:not(:first-child) {
+  margin-top: 8pt;
+}
+
+.notification_popup_inside_container_urgency_critical {
+  border-color: brown;
+}
+
+.notification_popups_action_button_container .notification_popups_action_button {
+  background-color: #3A3A3A;
+  padding: 7pt 10pt;
+  border: 1pt rgba(0, 0, 0, 0.5333333333) solid;
+}
+.notification_popups_action_button_container > *:not(:first-child) {
+  margin-left: 4pt;
+}
+.notification_popups_action_button_container *:first-child {
+  border-radius: 8pt 0 0 8pt;
+}
+.notification_popups_action_button_container *:last-child {
+  border-radius: 0 8pt 8pt 0;
+}
+
+.notification_center_window {
+  border-radius: 8pt;
+  padding: 6pt;
+}
+
+.notification_center_mainbox {
+  border-radius: 8pt;
+  margin: 6pt;
+  padding: 6pt;
+  background-color: #1C1C1C;
+}
+
+.notification_center_mainbox_calendar.header {
+  color: blue;
+}
+.notification_center_mainbox_calendar:indeterminate {
+  color: green;
+}

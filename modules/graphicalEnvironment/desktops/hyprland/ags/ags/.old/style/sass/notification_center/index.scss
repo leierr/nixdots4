@@ -1,0 +1,29 @@
+.notification_center_window {
+  border-radius: 8pt;
+  padding: 6pt;
+}
+
+.notification_center_mainbox {
+  border-radius: 8pt;
+  margin: 6pt;
+  padding: 6pt;
+  background-color: $bg1;
+}
+
+.notification_center_mainbox_calendar {
+  // * > .day:selected {
+  //   color: green;
+  //   min-width: 100pt;
+  // }
+
+  &.header {
+    color: blue;
+  }
+
+  &:indeterminate {
+    color: green;
+  }
+
+  // day-names .highlight
+  //&:selected {}
+}

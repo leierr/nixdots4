@@ -45,6 +45,10 @@
           };
         };
       };
+
+      programs.zsh.shellAliases = {
+        update = "nix flake update --flake '/home/leier/Projects/nixdots4' && sudo nixos-rebuild switch --flake '/home/leier/Projects/nixdots4#desktop'";
+      };
     })
   ];
 

@@ -1,0 +1,24 @@
+@use 'sass:color';
+
+// reset GTK theme stuff
+.topbar_submodules_workspaces,
+.topbar_submodules_workspaces * {
+  all: unset;
+}
+
+.topbar_submodules_workspaces_box {
+  // spacing between calculated in PT
+  // > *:not(:first-child) { margin-left: 4pt; }
+
+  > button {
+    min-height: $topbar_widget_max_height;
+    min-width: $topbar_widget_max_height;
+    font-weight: bold;
+    border-radius: $topbar_widget_max_height * .1;
+    color: rgba($fg, 0.4);
+
+    &.occupied { color: $fg; }
+    &.active { background-color: color.scale(#fff, $alpha: -75%); }
+    &:hover { background-color: color.scale(#fff, $alpha: -85%); }
+  }
+}

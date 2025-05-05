@@ -9,6 +9,7 @@ in
     
     # default enabled
     git.enable = lib.mkOption { type = lib.types.bool; default = true; };
+    kubectl.enable = lib.mkOption { type = lib.types.bool; default = true; };
 
     # optional
     mlocate.enable = lib.mkEnableOption "";
@@ -33,7 +34,8 @@ in
       ];
     })
 
-    # locate command + systemd timer for updating database.
+    ( lib.mkIf cfg.kubectl.enable { environment.systemPackages = with pkgs; [ kubectl kubie ]; })
+
     ( lib.mkIf cfg.mlocate.enable {
       services.locate = {
         enable = true;

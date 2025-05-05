@@ -1,0 +1,39 @@
+@charset "utf-8";
+@use 'sass:color';
+@import 'nix_theme';
+
+// remove GTK theme influence on the look
+*:not(popover):not(check):not(radio):not(arrow):not(tooltip) {
+    all: unset;
+    font-family: 'Cantarell';
+    font-size: 13pt;
+    color: $fg;
+}
+
+window.popup > menu {
+    border-radius: 4pt;
+    background-color: $bg1;
+    padding: 6pt;
+    border: 2pt solid $bg2;
+
+    separator {
+        background-color: $bg2;
+        margin: 4pt 2pt;
+        min-height: 1pt;  /* For horizontal separator */
+        min-width: 1pt;   /* For vertical separator */
+    }
+
+    menuitem {
+        padding: 4pt 8pt;
+        border-radius: 4pt;
+        margin: 0;
+
+        &:hover {
+            background-color: $primary-color;
+        }
+    }
+}
+
+@import 'topbar';
+@import 'notification_popups';
+@import 'notification_center';

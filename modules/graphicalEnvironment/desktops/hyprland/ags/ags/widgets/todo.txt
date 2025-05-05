@@ -1,0 +1,6 @@
+- [ ] lag battery widget på topbar'en
+- [ ] eksprementer med å flytte tray icons ut av widget boxes 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 

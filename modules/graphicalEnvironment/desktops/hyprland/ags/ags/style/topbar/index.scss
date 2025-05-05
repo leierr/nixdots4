@@ -1,0 +1,56 @@
+@use '../nix_theme' as *;
+@use 'sass:color';
+
+$topbar_widget_max_height: 24pt;
+
+.topbar {
+  background-color: #000;
+  > centerbox { margin: 4pt; }
+
+  // spacing between widgets calculated in PT
+  > centerbox > * > *:not(:last-child) { margin-right: 4pt; }
+}
+
+.topbar_os_logo {
+  icon { font-size: $topbar_widget_max_height * .8; }
+  min-height: $topbar_widget_max_height;
+  min-width: $topbar_widget_max_height;
+}
+
+.topbar_workspace_indicator {
+  > button {
+    min-height: $topbar_widget_max_height;
+    min-width: $topbar_widget_max_height;
+    font-weight: bold;
+    border-radius: $topbar_widget_max_height * .1;
+    > label { color: rgba($fg, 0.4); }
+
+    &.occupied > label { color: $fg; }
+    &.active { background-color: color.scale(#fff, $alpha: -75%); }
+    &:hover { background-color: color.scale(#fff, $alpha: -85%); }
+  }
+}
+
+.topbar_time {
+  min-height: $topbar_widget_max_height;
+  border-radius: $topbar_widget_max_height * .2;
+  padding: 0 10pt;
+
+  &:hover { background-color: $bg1; }
+  &:hover:active { background-color: $bg2; }
+  > label { color: $fg; font-weight: bold; }
+}
+
+.topbar_systray {
+  min-height: $topbar_widget_max_height;
+  border-radius: $topbar_widget_max_height * .2;
+  padding: 0 6pt;
+  background-color: color.scale(#fff, $alpha: -95%);
+}
+
+.topbar_systray_item {
+  > icon {
+    font-size: $topbar_widget_max_height * .7;
+    margin: 0 2pt;
+  }
+}
