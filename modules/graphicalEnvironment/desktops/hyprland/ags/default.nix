@@ -16,7 +16,6 @@ in
       #  recursive = true;
       #};
 
-      home.file.".config/ags".source = config.lib.file.mkOutOfStoreSymlink ./ags;
       home.file.".config/ags/style/nix_theme.scss".text = nixThemeToScssVariables;
 
       imports = [ flakeInputs.ags.homeManagerModules.default ];

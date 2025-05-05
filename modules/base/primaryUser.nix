@@ -55,10 +55,8 @@ in
         interactiveShellInit = "bindkey '^ ' autosuggest-accept";
         ohMyZsh.enable = true;
         ohMyZsh.plugins = [
-          "history-substring-search"
           "z" # zoxide clone
           "sudo" # press escape twice to add sudo
-          "extract" # extract file.tar.gz
         ];
         enableCompletion = true;
         autosuggestions.enable = true;
