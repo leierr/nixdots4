@@ -54,10 +54,6 @@ in
         enable = true;
         interactiveShellInit = "bindkey '^ ' autosuggest-accept";
         ohMyZsh.enable = true;
-        ohMyZsh.plugins = [
-          "z" # zoxide clone
-          "sudo" # press escape twice to add sudo
-        ];
         enableCompletion = true;
         autosuggestions.enable = true;
         autosuggestions.highlightStyle = "fg=246";

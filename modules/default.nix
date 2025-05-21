@@ -1,4 +1,4 @@
-{ flakeInputs, lib, config, ... }:
+{ flakeInputs, lib, config, pkgs, ... }:
 {
   options = {
     homeModules = lib.mkOption { default = []; };
@@ -34,5 +34,8 @@
         home.stateVersion = "${config.system.stateVersion}";
       };
     };
+
+    # standard command utilities
+    environment.systemPackages = with pkgs; [ openssl jq dnsutils ];
   };
 }
